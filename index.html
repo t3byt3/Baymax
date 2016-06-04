@@ -5,11 +5,37 @@
 </head>
 <style>
 h2 {font-family: 'Montserrat', sans-serif;
-padding-bottom: 5cm;
+padding-bottom: 0.5cm;
+padding-top: 0.2cm;
 text-align:center;
 text-transform: uppercase;
 color: #fbfcfc;
+margin: 0.3em 0 0;
+  color: white;
+  font-size: 90px;
+  text-shadow: 0 1px 0 #cccccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbbbbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaaaaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
 }
+
+h3 {font-family: 'Montserrat', sans-serif;
+padding-bottom: 10px;
+text-align:center;
+  color:#bdc3c7;
+    
+    font-size:3em;
+    text-shadow: 0px 1px 1px #2c3e50; 
+
+
+}
+
+.listStyle{
+        list-style-type: square;
+        color: #ff0000;
+    }
+
+#textStyle{
+    
+        color: #ff0000;
+    }
 
 * {
   outline:none;
@@ -27,7 +53,7 @@ body {
 	font-size:20px;
 }
 #margin {
-	margin-left:12px;
+	margin-left: 5px;
 	margin-bottom:20px;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -35,6 +61,7 @@ body {
 	-o-user-select: none;
 	user-select: none; 
 }
+
 #text {
 	width:500px;
 	overflow:hidden;
@@ -45,7 +72,7 @@ body {
 	font-size:24px;
 	resize:none;
 	line-height:40px;
-	padding-left:100px;
+	padding-left:150px;
 	padding-right:100px;
 	padding-top:45px;
 	padding-bottom:34px;
@@ -69,19 +96,21 @@ body {
 	width:220px;
 }
 #wrapper {
-	width:700px;
+	width:500px;
 	height:auto;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:24px;
+	margin-top:0px;
 	margin-bottom:100px;
 }
 
-.submit {
-    width: 120px;
+#submit {
+    
     height: 32px;
-    padding: 0 0 2px;
-    font: 90% "Trebuchet MS", Tahoma, Arial, sans-serif;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+    font-family: 'Montserrat', sans-serif;
     line-height: 32px;
     text-transform: uppercase;
     margin: 1em auto;
@@ -90,7 +119,7 @@ body {
     position: relative;
     cursor: pointer;
     border-radius: 3px;
-    color: #5D7731;
+    color: #2980b9;
     text-shadow: 1px 1px #D0E5A4;
     border: 1px solid #89A94D;
     border-top: 1px solid #AAD063;
@@ -113,8 +142,8 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cae285', endColorstr='#a3cd5a',GradientType=0 ); /* IE6-9 */
     background-color: #B6D76F;
 }
-.submit::-moz-focus-inner{border:0}
-.submit:hover {
+#submit::-moz-focus-inner{border:0}
+#submit:hover {
     border-top: 1px solid #98B85B;
     box-shadow:
         inset 0 1px #CCE3A1,
@@ -134,7 +163,7 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#abd164', endColorstr='#b9d972',GradientType=0 ); /* IE6-9 */
     background-color: #B6D76F;
 }
-.submit:active {
+#submit:active {
     top: 3px;
     border: 1px solid #88A84E;
     border-top: 1px solid #6E883F;
@@ -148,13 +177,15 @@ body {
 <script tpye="text/javascript">
    $(function () {
   
-  var die = ["R.I.P", "May mah soul rest in peace", "Good joke lame a*s","Is it no problem , if I shutdown ??"];
+  var die = ["R.I.P", "rest in peace", "Good joke","Is it no problem , if I shutdown?"];
   var close=3;
   
-  var machineName = "Lol";
+  var machineName = "Baymax";
+
   $(".status-text").hide();
   function addMessage(message, author, machine) {
-    $("#messages").append('<li style="display: none;"><strong title="' + author + '">' + author + ': </strong><span>' + message +  '</span></li>');
+
+    $("#messages").append('<li class="listStyle" style="display: none;"><span style="color:lightblue">' + author + ': </span><span style="color:green">' + message +  '</span></li>');
     if (typeof machine == "boolean")
       $(".status-text").fadeOut();
     else
@@ -166,14 +197,14 @@ body {
         switch (message.toLowerCase()) {
           case "book":
             
-            addMessage("Hqllo, " + localStorage.username + "! How are you?", machineName, true);
+            addMessage("Hello, " + localStorage.username + "! How are you?", machineName, true);
           
         $(".but_1").show();
             
             break;
           case "hello":
-          case "ff":
-            addMessage("aa, ", machineName, true);
+          case "hi":
+            addMessage("Hey there! Have a good day.", machineName, true);
             break;
           case "die":
             var randomNumber = Math.floor(Math.random()*die.length);
@@ -218,8 +249,8 @@ body {
 });
 </script>
 <body>
-   <h2>Hello! I'm Baymax – Your personal healthcare companion. <br />
-       How can I help you today?</h2>
+   <h2>Hello! I'm Baymax! <br /></h2><h3>Your personal healthcare companion.<br />
+       How can I help you today?</h3>
       <div id="wrapper">
 <div id="chatContainer">
   <div id="messages"></div>
@@ -229,8 +260,8 @@ body {
   <form action="" id="chatInput">
     
      <textarea id="text"></textarea>
-      <input name="enviar" type="submit" id="c_input_submit" class="but_1" style="display:none;" value="Book Appointments" />
-      <input type="submit"  class="submit" value="Send" />
+      <input type="submit" id="submit" class="but_1" style="display:none;" value="Book Appointments" />
+      <input type="submit"  id="submit" value="Send" />
     
   </form>
 </div>
