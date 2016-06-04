@@ -3,17 +3,26 @@
 <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'></head>
-<style>body { 
-   background:#333 url(http://static.tumblr.com/maopbtg/a5emgtoju/inflicted.png) repeat;      
-   font-family: 'Montserrat', sans-serif;
-   text-align: center;
-}
+<style>
 h1 {font-family: 'Orbitron', sans-serif;
 padding-bottom: 5cm;
 }
 
-
-
+* {
+  outline:none;
+	border:none;
+	margin:0px;
+	padding:0px;
+	font-family: 'Montserrat', sans-serif;
+  color: #FFF;
+}
+body {
+	background:#333 url(http://static.tumblr.com/maopbtg/a5emgtoju/inflicted.png) repeat;        
+}
+#paper {
+	color:#FFF;
+	font-size:20px;
+}
 #margin {
 	margin-left:12px;
 	margin-bottom:20px;
@@ -46,7 +55,16 @@ padding-bottom: 5cm;
 	border-top:1px solid #FFF;
 	border-bottom:1px solid #FFF;
 }
-
+#title {
+	background-color:transparent;
+	border-bottom:3px solid #FFF;
+	color:#FFF;
+	font-size:20px;
+	font-family:Courier, monospace;
+	height:28px;
+	font-weight:bold;
+	width:220px;
+}
 #wrapper {
 	width:700px;
 	height:auto;
@@ -56,52 +74,73 @@ padding-bottom: 5cm;
 	margin-bottom:100px;
 }
 
+.submit {
+    width: 120px;
+    height: 32px;
+    padding: 0 0 2px;
+    font: 90% "Trebuchet MS", Tahoma, Arial, sans-serif;
+    line-height: 32px;
+    text-transform: uppercase;
+    margin: 1em auto;
+    display: block;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+    border-radius: 3px;
+    color: #5D7731;
+    text-shadow: 1px 1px #D0E5A4;
+    border: 1px solid #89A94D;
+    border-top: 1px solid #AAD063;
+    border-bottom: 1px solid #6D883B;
+    box-shadow:
+        inset 0 1px #E0EEB6,
+        inset 1px 0 #C6E08D,
+        inset -1px 0 #C6E08D,
+        inset 0 -1px #B4D579,
+        0 2px #799545,
+        0 3px #6D883B,
+        0 4px 2px rgba(0,0,0,0.4)
+    ;
+    background: -moz-linear-gradient(top,  #cae285 0%, #a3cd5a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cae285), color-stop(100%,#a3cd5a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #cae285 0%,#a3cd5a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #cae285 0%,#a3cd5a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #cae285 0%,#a3cd5a 100%); /* IE10+ */
+    background: linear-gradient(top,  #cae285 0%,#a3cd5a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cae285', endColorstr='#a3cd5a',GradientType=0 ); /* IE6-9 */
+    background-color: #B6D76F;
+}
+.submit::-moz-focus-inner{border:0}
+.submit:hover {
+    border-top: 1px solid #98B85B;
+    box-shadow:
+        inset 0 1px #CCE3A1,
+        inset 1px 0 #C6E08D,
+        inset -1px 0 #C6E08D,
+        inset 0 -1px #C7E18E,
+        0 2px #799545,
+        0 3px #6D883B,
+        0 4px 2px rgba(0,0,0,0.4)
+    ;
+    background: -moz-linear-gradient(top,  #abd164 0%, #b9d972 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#abd164), color-stop(100%,#b9d972)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #abd164 0%,#b9d972 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #abd164 0%,#b9d972 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #abd164 0%,#b9d972 100%); /* IE10+ */
+    background: linear-gradient(top,  #abd164 0%,#b9d972 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#abd164', endColorstr='#b9d972',GradientType=0 ); /* IE6-9 */
+    background-color: #B6D76F;
+}
+.submit:active {
+    top: 3px;
+    border: 1px solid #88A84E;
+    border-top: 1px solid #6E883F;
+    border-bottom: 1px solid #95B855;
+    background: #A7CF5F;
+    box-shadow: inset 0 1px 2px #779441;
+}
 
-#submit {
-    overflow:hidden;
-    outline:none;
-    height:60px;
-    padding:0 70px;
-    background:transparent;
-    border-radius:60px;
-    color:#ff8a6f;
-    cursor:pointer;
-    font-size:20px;
-    font-weight:bold;
-    border:none;
-    transition:all 500ms;
-    text-align:center;
-    position:absolute;
-    top:50%;
-    left:50%;
-    -webkit-transform:translate(-50%, -50%);
-    -moz-transform:translate(-50%, -50%);
-    -ms-transform:translate(-50%, -50%);
-    -o-transform:translate(-50%, -50%);
-    transform:translate(-50%, -50%);
-    -webkit-box-shadow:0px 0px 0px 4px #ff8a6f inset;
-    -moz-box-shadow:0px 0px 0px 4px #ff8a6f inset;
-    box-shadow:0px 0px 0px 4px #ff8a6f inset;
-}
-#submit.no-hover:hover {
-    box-shadow:0px 0px 0px 4px rgba(0, 0, 0, 0) inset;
-    background:#ff8a6f;
-    color:#fff;
-}
-#submit:before {
-    content:"";
-    position:absolute;
-    top:0px;
-    left:0px;
-    background:#ff8a6f;
-    height:100%;
-    width:0px;
-    transition:all 4s;
-    z-index:-1;
-}
-#submit.progress:before {
-    width:100%;
-}</style>
+</style>
 
 <script tpye="text/javascript">
    $(function () {
@@ -178,7 +217,7 @@ padding-bottom: 5cm;
 <body>
    <h1>Hello! I'm Baymax – Your personal healthcare companion. <br />
        How can I help you today?</h1>
-       <div id="wrapper">
+      <div id="wrapper">
 <div id="chatContainer">
   <div id="messages"></div>
   <div class="status-text"></div>
@@ -186,12 +225,13 @@ padding-bottom: 5cm;
 
   <form action="" id="chatInput">
     
-     <textarea id="paper"></textarea>
+     <textarea id="text"></textarea>
       <input name="enviar" type="submit" id="c_input_submit" class="but_1" style="display:none;" value="Book Appointments" />
-      <input type="submit" id="submit" class="submit" value="Send" />
+      <input type="submit"  class="submit" value="Send" />
     
   </form>
 </div>
 </div>
+
 </body>
 </html>
