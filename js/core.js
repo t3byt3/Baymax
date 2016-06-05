@@ -1,7 +1,9 @@
+
 $(function () {
 
 
   var blabber_check=0;
+ var a=0,b=0,c=0;
 
   var db = [ ["what","your","name"],
              ["hello"],
@@ -55,70 +57,33 @@ $(function () {
         }
         if(message.includes('book'))
         {
-            addMessage("Go on for a appointment ", machineName, true);
-            $(".but_1").show();
+            addMessage("Making an Appointment under the name: " + author + " Right? Reply with yes.", machineName, true);
+            a=1;            
+        }
+        if(message.includes('yes')) {
+          if(a==1){
+           addMessage("Reply with the doctor's number for which an appointment should be made.", machineName, true);
+           addMessage("<br/>Doctor #1 <br/>Doctor #2 <br/> Doctor #3 <br/>", machineName, true);
+           b=1;
+
+           $(".but_1").show();
+        }
+        }
+        if(message.includes('1'||'2'||'3'))
+        {
+           if(b==1){
+                c=1; var number=message;          
+            } 
+        }
+        if(c==1){
+           addMessage("Appointment under the name: " + author + "<br/> for the Doctor "+number+". Correct? Reply with confirm to proceed.", machineName, true);
+        }
+        if(message.includes('confirm'))
+        {
+            //POST REQUEST HERE            
         }
 
-
-        /*switch (message.toLowerCase()) {
-
-          case "book":
-
-            addMessage("Hello, " + localStorage.username + "! How are you?", machineName, true);
-
-        $(".but_1").show();
-            break;
-
-
-          case "hello":
-          case "hi":
-            addMessage("Hey there! Have a good day.", machineName, true);
-            break;
-
-
-
-          case "die":
-            var randomNumber = Math.floor(Math.random()*sample.length);
-            addMessage(sample[randomNumber], machineName, true);
-            close--;
-            if (close==0)
-              {
-                alert("Thanks for stopping by !! :)");
-                window.close();
-              }
-
-            break;
-
-
-
-
-          case "help":
-          case "manual":
-            addMessage("You can use the following commands:", machineName, true);
-            break;
-
-
-
-          case "time":
-            addMessage("The time now is: see the bottom right clock is there, ha ha.", machineName, true);
-            break;
-
-
-
-          case "what is your name?":
-          case "what is your name":
-            addMessage("My name is " + machineName + ". I thought you knew it already!", machineName, true);
-            break;
-
-
-
-          default:
-            addMessage("What are you blabbering?", machineName, true);
-            break;
-
-
-
-        } */
+    
       }, 500);
   }
   if (typeof localStorage != "undefined")
